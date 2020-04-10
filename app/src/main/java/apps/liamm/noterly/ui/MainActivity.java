@@ -1,4 +1,4 @@
-package apps.liamm.noterly;
+package apps.liamm.noterly.ui;
 
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +15,8 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import apps.liamm.noterly.R;
 
 public class MainActivity extends AppCompatActivity {
 
