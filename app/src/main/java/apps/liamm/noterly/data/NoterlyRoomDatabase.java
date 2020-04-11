@@ -15,14 +15,14 @@ import apps.liamm.noterly.data.entities.CategoryEntity;
 @Database(entities = {CategoryEntity.class}, version = 1, exportSchema = false)
 public abstract class NoterlyRoomDatabase extends RoomDatabase {
 
-    public abstract CategoryDao mCategoryDao();
+    public abstract CategoryDao categoryDao();
 
     private static volatile NoterlyRoomDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
     public static final ExecutorService databaseWriteExecutor =
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    static NoterlyRoomDatabase getDatabase(final Context context) {
+    public static NoterlyRoomDatabase getDatabase(final Context context) {
         if (INSTANCE == null) {
             synchronized (NoterlyRoomDatabase.class) {
                 if (INSTANCE == null) {

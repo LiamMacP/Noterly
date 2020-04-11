@@ -1,6 +1,5 @@
 package apps.liamm.noterly.data.daos;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -29,7 +28,4 @@ public interface CategoryDao {
 
     @Delete
     void deleteCategory(CategoryEntity categoryEntity);
-
-    @Query("DELETE FROM category_table WHERE name = :name")
-    void deleteCategoryByName(@NonNull String name);
 }
