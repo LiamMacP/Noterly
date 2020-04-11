@@ -15,17 +15,17 @@ public class CategoryRepository {
         private CategoryDao mWordDao;
         private LiveData<List<CategoryEntity>> mAllCategories;
 
-        CategoryRepository(Application application) {
+        public CategoryRepository(Application application) {
             NoterlyRoomDatabase db = NoterlyRoomDatabase.getDatabase(application);
             mWordDao = db.categoryDao();
             mAllCategories = mWordDao.getAllCategories();
         }
 
-        LiveData<List<CategoryEntity>> getAllCategories() {
+        public LiveData<List<CategoryEntity>> getAllCategories() {
             return mAllCategories;
         }
 
-        void insert(CategoryEntity category) {
+        public void insert(CategoryEntity category) {
             NoterlyRoomDatabase.databaseWriteExecutor.execute(() -> mWordDao.insert(category));
         }
     }

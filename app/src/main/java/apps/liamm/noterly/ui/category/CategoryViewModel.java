@@ -1,19 +1,28 @@
 package apps.liamm.noterly.ui.category;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class CategoryViewModel extends ViewModel {
+import java.util.List;
 
-    private MutableLiveData<String> mText;
+import apps.liamm.noterly.data.entities.CategoryEntity;
+import apps.liamm.noterly.repositories.CategoryRepository;
 
-    public CategoryViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
-    }
+public class CategoryViewModel extends AndroidViewModel {
 
-    public LiveData<String> getText() {
-        return mText;
-    }
+        private CategoryRepository mRepository;
+
+        private LiveData<List<CategoryEntity>> mAllCategories;
+
+        public CategoryViewModel (Application application) {
+            super(application);
+            mRepository = new CategoryRepository(application);
+            mAllCategories = mRepository.getAllCategories();
+        }
+
+        LiveData<List<CategoryEntity>> getAllCategories() { return mAllCategories; }
+
+        public void insert(CategoryEntity category) { mRepository.insert(category); }
 }
