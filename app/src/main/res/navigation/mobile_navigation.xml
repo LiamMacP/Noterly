@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="apps.liamm.noterly.ui.category.CategoryFragment"
+        android:name="apps.liamm.noterly.ui.category.CategoryListFragment"
         android:label="@string/menu_categories"
-        tools:layout="@layout/fragment_category"/>
+        tools:layout="@layout/fragment_category_list"/>
 
     <fragment
         android:id="@+id/nav_gallery"

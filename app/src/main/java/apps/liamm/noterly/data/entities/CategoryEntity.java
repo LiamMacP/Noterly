@@ -25,6 +25,10 @@ public class CategoryEntity {
         this.mColourHex = colourHex;
     }
 
+    public void setId(int id) {
+        this.mId = id;
+    }
+
     public int getId() {
         return this.mId;
     }

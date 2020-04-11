@@ -11,15 +11,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import apps.liamm.noterly.R;
 
-public class CategoryFragment extends Fragment {
+public class CategoryListFragment extends Fragment {
 
-    private CategoryViewModel categoryViewModel;
+    private CategoryListViewModel mCategoryListViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        categoryViewModel =
-                ViewModelProviders.of(this).get(CategoryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_category, container, false);
+        mCategoryListViewModel =
+                ViewModelProviders.of(this).get(CategoryListViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_category_list, container, false);
         return root;
     }
 }
