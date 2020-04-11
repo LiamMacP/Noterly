@@ -23,6 +23,7 @@
         android:background="@color/colorAccent"/>
 
     <TextView
+        android:id="@+id/category_list_item_title_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
