@@ -5,7 +5,10 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
@@ -22,8 +25,8 @@ public class CreateCategoryDialogFragment extends DialogFragment {
     }
 
     public interface CreateCategoryDialogListener {
-        public void onDialogAddClick(DialogFragment dialog);
-        public void onDialogCancelClick(DialogFragment dialog);
+        void onDialogAddClick(String text, long selectedItemId);
+        void onDialogCancelClick();
     }
 
     @NonNull
@@ -32,20 +35,17 @@ public class CreateCategoryDialogFragment extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.add_category);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder.setView(R.layout.dialogfragment_category_add);
-        } else {
-            Context context = getActivity();
-            if (context != null) {
-                View view = View.inflate(context, R.layout.dialogfragment_category_add, null);
-                builder.setView(view);
-            }
-        }
+        Context context = getActivity();
+        View view = View.inflate(context, R.layout.dialogfragment_category_add, null);
+        final EditText titleEditText = view.findViewById(R.id.category_add_title_edittext);
+        final Spinner colourSpinner = view.findViewById(R.id.category_add_colour_soinner);
+
+        builder.setView(view);
 
         builder.setPositiveButton(R.string.add, (dialog, id) ->
-                mListener.onDialogAddClick(CreateCategoryDialogFragment.this));
+                mListener.onDialogAddClick(titleEditText.getText().toString(), colourSpinner.getSelectedItemId()));
         builder.setNegativeButton(R.string.cancel, (dialog, id) ->
-                mListener.onDialogCancelClick(CreateCategoryDialogFragment.this));
+                mListener.onDialogCancelClick());
 
         // Create the AlertDialog object and return it
         return builder.create();
