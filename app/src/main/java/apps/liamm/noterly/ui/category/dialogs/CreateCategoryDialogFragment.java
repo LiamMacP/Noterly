@@ -3,6 +3,7 @@ package apps.liamm.noterly.ui.category.dialogs;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,6 +13,8 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+
+import java.util.Arrays;
 
 import apps.liamm.noterly.R;
 
@@ -25,7 +28,7 @@ public class CreateCategoryDialogFragment extends DialogFragment {
     }
 
     public interface CreateCategoryDialogListener {
-        void onDialogAddClick(String text, long selectedItemId);
+        void onDialogAddClick(String text, String colour);
         void onDialogCancelClick();
     }
 
@@ -38,12 +41,19 @@ public class CreateCategoryDialogFragment extends DialogFragment {
         Context context = getActivity();
         View view = View.inflate(context, R.layout.dialogfragment_category_add, null);
         final EditText titleEditText = view.findViewById(R.id.category_add_title_edittext);
+
         final Spinner colourSpinner = view.findViewById(R.id.category_add_colour_soinner);
+        Resources res = getResources();
+        String[] defaultColours = res.getStringArray(R.array.default_colours_array);
+        CreateCategorySpinnerAdapter adapter = new CreateCategorySpinnerAdapter(getContext(),
+                R.layout.dialogfragment_category_spinner_item, Arrays.asList(defaultColours));
+        colourSpinner.setAdapter(adapter);
 
         builder.setView(view);
 
-        builder.setPositiveButton(R.string.add, (dialog, id) ->
-                mListener.onDialogAddClick(titleEditText.getText().toString(), colourSpinner.getSelectedItemId()));
+        builder.setPositiveButton(R.string.add, (dialog, id) -> {
+                    mListener.onDialogAddClick(titleEditText.getText().toString(), (String)colourSpinner.getSelectedItem());
+                });
         builder.setNegativeButton(R.string.cancel, (dialog, id) ->
                 mListener.onDialogCancelClick());
 

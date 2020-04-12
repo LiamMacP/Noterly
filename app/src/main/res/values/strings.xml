@@ -13,5 +13,6 @@
     <string name="add_category">Add Category</string>
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
-    <string name="category_title">Title…</string>
+    <string name="category_title">Title</string>
+
 </resources>

@@ -45,8 +45,8 @@ public class CategoryListFragment extends Fragment
     }
 
     @Override
-    public void onDialogAddClick(String text, long selectedItemId) {
-        Toast.makeText(getContext(), "Text:" + text, Toast.LENGTH_SHORT).show();
+    public void onDialogAddClick(String text, String colour) {
+        Toast.makeText(getContext(), "Text:" + colour, Toast.LENGTH_SHORT).show();
     }
 
     @Override
