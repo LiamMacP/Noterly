@@ -45,7 +45,7 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
         return this.mCategories == null ? 0 : this.mCategories.size();
     }
 
-    void setWords(List<CategoryEntity> categories){
+    void setCategories(List<CategoryEntity> categories){
         this.mCategories = categories;
         notifyDataSetChanged();
     }
