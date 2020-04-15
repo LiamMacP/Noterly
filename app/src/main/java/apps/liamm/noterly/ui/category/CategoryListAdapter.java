@@ -14,14 +14,17 @@ import java.util.List;
 
 import apps.liamm.noterly.R;
 import apps.liamm.noterly.data.entities.CategoryEntity;
+import apps.liamm.noterly.ui.category.listeners.OnItemClickListener;
 
 public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapter.ViewHolder> {
 
     private LayoutInflater mLayoutInflater;
     private List<CategoryEntity> mCategories;
+    private OnItemClickListener mClickListener;
 
-    CategoryListAdapter(Context context) {
-        mLayoutInflater = LayoutInflater.from(context);
+    CategoryListAdapter(@NonNull Context context, @NonNull OnItemClickListener onItemClickListener) {
+        this.mLayoutInflater = LayoutInflater.from(context);
+        this.mClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -35,8 +38,8 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if (mCategories != null) {
             CategoryEntity category = mCategories.get(position);
-            holder.colourView.setBackgroundColor(Color.parseColor(category.getColourHex()));
-            holder.categoryTextView.setText(category.getName());
+
+            holder.bindData(category, mClickListener);
         }
     }
 
@@ -51,13 +54,23 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
-        View colourView;
-        TextView categoryTextView;
+        private View itemView;
+        private View colourView;
+        private TextView categoryTextView;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            colourView = itemView.findViewById(R.id.category_list_item_colour_view);
-            categoryTextView = itemView.findViewById(R.id.category_list_item_title_text_view);
+
+            this.itemView = itemView;
+            this.colourView = itemView.findViewById(R.id.category_list_item_colour_view);
+            this.categoryTextView = itemView.findViewById(R.id.category_list_item_title_text_view);
+        }
+
+        void bindData(@NonNull CategoryEntity category, @NonNull OnItemClickListener clickListener) {
+            colourView.setBackgroundColor(Color.parseColor(category.getColourHex()));
+            categoryTextView.setText(category.getName());
+
+            itemView.setOnClickListener(v -> clickListener.onItemClicked(category));
         }
     }
 }

@@ -20,7 +20,6 @@ import apps.liamm.noterly.R;
 public class CreateCategorySpinnerAdapter extends ArrayAdapter<String> {
 
     private final LayoutInflater mInflater;
-    private final Context mContext;
     private final List<String> mColours;
     private final int mResource;
 
@@ -28,7 +27,6 @@ public class CreateCategorySpinnerAdapter extends ArrayAdapter<String> {
                               @NonNull List colours) {
         super(context, resource, 0, colours);
 
-        mContext = context;
         mInflater = LayoutInflater.from(context);
         mResource = resource;
         mColours = colours;

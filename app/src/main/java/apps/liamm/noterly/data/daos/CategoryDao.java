@@ -14,14 +14,12 @@ import apps.liamm.noterly.data.entities.CategoryEntity;
 
 @Dao
 public interface CategoryDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(CategoryEntity categoryEntity);
 
     @Query("SELECT * FROM category_table ORDER BY name ASC")
     LiveData<List<CategoryEntity>> getAllCategories();
-
-    @Update
-    void updateCategory(CategoryEntity categoryEntity);
 
     @Query("DELETE FROM category_table")
     void deleteAllCategories();

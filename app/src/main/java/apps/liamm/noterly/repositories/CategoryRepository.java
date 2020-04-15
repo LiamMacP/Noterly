@@ -28,5 +28,9 @@ public class CategoryRepository {
         public void insert(CategoryEntity category) {
             NoterlyRoomDatabase.databaseWriteExecutor.execute(() -> mWordDao.insert(category));
         }
+
+        public void delete(CategoryEntity category) {
+            NoterlyRoomDatabase.databaseWriteExecutor.execute(() -> mWordDao.deleteCategory(category));
+        }
     }
 
