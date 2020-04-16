@@ -7,9 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="apps.liamm.noterly.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home"/>
+        android:name="apps.liamm.noterly.ui.category.CategoryListFragment"
+        android:label="@string/menu_categories"
+        tools:layout="@layout/fragment_category_list">
+        <action
+            android:id="@+id/actionOpenCreateCategory"
+            app:destination="@id/nav_create_category_dialog" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -22,4 +26,16 @@
         android:name="apps.liamm.noterly.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <dialog
+        android:id="@+id/nav_create_category_dialog"
+        android:name="apps.liamm.noterly.ui.category.dialogs.CreateCategoryDialogFragment"
+        android:label="@string/create_category_create_dialog_title"
+        tools:layout="@layout/dialogfragment_category_add">
+        <argument
+            android:name="editCategory"
+            app:argType="apps.liamm.noterly.data.entities.CategoryEntity"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </dialog>
 </navigation>
