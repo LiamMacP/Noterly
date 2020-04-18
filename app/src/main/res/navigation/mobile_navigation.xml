@@ -21,12 +21,6 @@
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="apps.liamm.noterly.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
     <dialog
         android:id="@+id/nav_create_category_dialog"
         android:name="apps.liamm.noterly.ui.category.dialogs.CreateCategoryDialogFragment"
