@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class CreateCategoryDialogViewModel extends ViewModel {
+class CreateCategoryDialogViewModel extends ViewModel {
 
     private MutableLiveData<CreateCategoryDialogResult> mDialogResult;
 
@@ -12,11 +12,11 @@ public class CreateCategoryDialogViewModel extends ViewModel {
         mDialogResult = new MutableLiveData<>();
     }
 
-    public LiveData<CreateCategoryDialogResult> getDialogResult() {
+    LiveData<CreateCategoryDialogResult> getDialogResult() {
         return mDialogResult;
     }
 
-    public void setDialogResult(CreateCategoryDialogResult result) {
+    void setDialogResult(CreateCategoryDialogResult result) {
         mDialogResult.setValue(result);
     }
 

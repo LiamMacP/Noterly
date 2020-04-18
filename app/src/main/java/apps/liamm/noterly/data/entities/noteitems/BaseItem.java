@@ -2,8 +2,6 @@ package apps.liamm.noterly.data.entities.noteitems;
 
 import android.os.Parcelable;
 
-import org.w3c.dom.Element;
-
 public abstract class BaseItem implements Parcelable {
     public enum NoteItemType {
         TEXT,

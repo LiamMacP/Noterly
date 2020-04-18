@@ -3,10 +3,6 @@ package apps.liamm.noterly.data.entities.noteitems;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
 import apps.liamm.noterly.infrastructure.helpers.StringUtils;
 
 public class TextItem extends BaseItem {

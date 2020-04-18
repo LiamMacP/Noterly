@@ -10,7 +10,7 @@ import java.util.List;
 import apps.liamm.noterly.data.entities.CategoryEntity;
 import apps.liamm.noterly.repositories.CategoryRepository;
 
-public class CategoryListViewModel extends AndroidViewModel {
+class CategoryListViewModel extends AndroidViewModel {
 
         private CategoryRepository mRepository;
 

@@ -6,8 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.SpinnerAdapter;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
@@ -17,14 +15,14 @@ import java.util.List;
 
 import apps.liamm.noterly.R;
 
-public class CreateCategorySpinnerAdapter extends ArrayAdapter<String> {
+class CreateCategorySpinnerAdapter extends ArrayAdapter<String> {
 
     private final LayoutInflater mInflater;
     private final List<String> mColours;
     private final int mResource;
 
-    public CreateCategorySpinnerAdapter(@NonNull Context context, @LayoutRes int resource,
-                              @NonNull List colours) {
+    CreateCategorySpinnerAdapter(@NonNull Context context, @LayoutRes int resource,
+                                 @NonNull List<String> colours) {
         super(context, resource, 0, colours);
 
         mInflater = LayoutInflater.from(context);
