@@ -3,10 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_notes">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/nav_notes"
+        android:name="apps.liamm.noterly.ui.note.NoteListFragment"
+        android:label="@string/menu_notes"
+        tools:layout="@layout/fragment_note_list" />
+
+    <fragment
+        android:id="@+id/nav_categories"
         android:name="apps.liamm.noterly.ui.category.CategoryListFragment"
         android:label="@string/menu_categories"
         tools:layout="@layout/fragment_category_list">
@@ -14,12 +20,6 @@
             android:id="@+id/actionOpenCreateCategory"
             app:destination="@id/nav_create_category_dialog" />
     </fragment>
-
-    <fragment
-        android:id="@+id/nav_gallery"
-        android:name="apps.liamm.noterly.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
 
     <dialog
         android:id="@+id/nav_create_category_dialog"

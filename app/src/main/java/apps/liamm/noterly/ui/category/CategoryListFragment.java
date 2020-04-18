@@ -46,6 +46,7 @@ public class CategoryListFragment extends Fragment
 
         mCategoryListViewModel =
                 new ViewModelProvider(this).get(CategoryListViewModel.class);
+
         mCategoryListViewModel.getAllCategories().observe(getViewLifecycleOwner(),
                 categoryEntities -> mCategoryListAdapter.setCategories(categoryEntities));
 
