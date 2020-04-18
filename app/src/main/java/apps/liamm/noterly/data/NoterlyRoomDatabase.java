@@ -11,8 +11,9 @@ import java.util.concurrent.Executors;
 
 import apps.liamm.noterly.data.daos.CategoryDao;
 import apps.liamm.noterly.data.entities.CategoryEntity;
+import apps.liamm.noterly.data.entities.NoteEntity;
 
-@Database(entities = {CategoryEntity.class}, version = 1, exportSchema = false)
+@Database(entities = {CategoryEntity.class, NoteEntity.class}, version = 1, exportSchema = false)
 public abstract class NoterlyRoomDatabase extends RoomDatabase {
 
     public abstract CategoryDao categoryDao();
